@@ -11,10 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('eixos', function (Blueprint $table) {
+        Schema::create('documentos', function (Blueprint $table) {
             $table->id();
-            $table->string('nome');
-            $table->text('descricao');
+            $table->string('url');
+            $table->string('descricao');
+            $table->float('horas_in');
+            $table->string('status');
+            $table->string('comentario');
+            $table->float('horas_out');
             $table->softDeletes();
             $table->timestamps();
         });
@@ -25,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('eixos');
+        Schema::dropIfExists('documentos');
     }
 };
